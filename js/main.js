@@ -149,7 +149,7 @@ function calcTax () {
     let target = calcTotal(totalIcome,persons)
     let userValue = user.value;
     let tax = 0;
-    if(target === 60000000) {
+    if(target <= 60000000) {
         tax = target*5/100
     }
     else if(target > 60000000 && target <=120000000) {
@@ -238,7 +238,7 @@ function calcCompany(userID,channel,connectCable) {
         BASIC_HANDLE_COST_COMPANY + VIP_CABLE_COMPANY*channelValue
     }
     else if (connectCableValue > 10) {
-        total = 10*BASIC_COST_COMPANY + (connectCableValue-10)*EXTRA_COST_COMPANY 
+        total = BASIC_COST_COMPANY + (connectCableValue-10)*EXTRA_COST_COMPANY 
         + BASIC_HANDLE_COST_COMPANY + VIP_CABLE_COMPANY*channelValue
     }
     totalBill.innerHTML = `Mã doanh nghiệp : ${userIDValue}
